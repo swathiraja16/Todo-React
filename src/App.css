@@ -1,5 +1,3 @@
-@import "./App.scss";
-
 .jumbotron {
   padding:20px 0px 20px 0px;
   margin:0px auto;
@@ -23,6 +21,33 @@
   padding: 50px 0px 50px 0px;
   border-bottom: 1px ridge;
   
+}
+
+.todolist {
+  padding-left: 0;
+}
+.todolist .todoitem {
+  position: relative;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  border-top: 1px solid #ccc;
+}
+
+.todolist .todoitem.done .form-check-label {
+  color: #999;
+  text-decoration: line-through;
+}
+
+.todolist .todoitem .btn-danger {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+.todolist .todoitem .form-check-label {
+  width: 100%;
+}
+.todolist .todoitem .form-check-label .form-check-input {
+  margin-right: 1rem;
 }
 
 

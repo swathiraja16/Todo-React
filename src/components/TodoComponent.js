@@ -15,10 +15,11 @@ class TodoItem extends Component {
    
 
     render(){
-        var isDone = "form-check todoitem" + (this.props.completed ? "done" : "undone");
+        var isDone = "form-check todoitem " + (this.props.completed ? "done" : "undone");
+        console.log(isDone);
         return(
             
-            <li className = {isDone} ref={li => this._listItem = li} >
+            <li className = {isDone} >
                 <label className="form-check-label">
                     <input type="checkbox" className="form-check-input" onChange={this.taskcompleted} /> {this.props.todoItem}
                 </label>
@@ -99,12 +100,12 @@ class Todo extends Component{
         return(
             <div className="container">
                 <div className = "row">
-                    <div className = "col-md-5">
-                        <TodoList todoList = {this.state.todoList} onCompleted = {this.itemcompleted} onDeleted = {this.deleted}/>
+                    <div className = "col-md-3">
+                        <TodoList todoList = {this.state.todoList} onCompleted = {this.itemcompleted} onDeleted = {this.deleted} />
                     </div>
                 </div>
                 <form className = "row">
-                    <div className = "col-md-5">
+                    <div className = "col-md-3">
                         <input type="text" className="form-control" onChange = {this.handleChange} value={this.state.todoItem} />
                     </div>
                     <div className = "col-md-3">

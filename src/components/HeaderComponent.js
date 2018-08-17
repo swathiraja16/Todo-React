@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import {Navbar, Jumbotron, NavbarBrand} from 'reactstrap';
+import {Navbar, Jumbotron} from 'reactstrap';
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
+   
 
     render(){
         return (
