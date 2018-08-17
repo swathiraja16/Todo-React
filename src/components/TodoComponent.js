@@ -16,14 +16,19 @@ class TodoItem extends Component {
 
     render(){
         var isDone = "form-check todoitem " + (this.props.completed ? "done" : "undone");
-        console.log(isDone);
         return(
             
             <li className = {isDone} >
+            <div className="row">
+            <div className = "col-8">
                 <label className="form-check-label">
                     <input type="checkbox" className="form-check-input" onChange={this.taskcompleted} /> {this.props.todoItem}
                 </label>
-                <button type="button" className="btn btn-danger btn-sm" onClick={this.taskdeleted}>x</button>
+                </div>
+               
+                <button type="button" className="btn  btn-danger btn-sm" onClick={this.taskdeleted}>x</button>
+                
+                </div>
             </li>
             
         );
@@ -56,10 +61,19 @@ class Todo extends Component{
     }
 
     handleChange(event) {
+        const text = event.target.value.trim();
+        if(text){
         this.setState({
             todoItem: event.target.value
         });
     }
+    else {
+        alert('Cannot Create empty todo');
+        this.setState({
+            todoItem: ""
+        });
+    }
+}
 
     addItem(event) {
         event.preventDefault();
@@ -100,19 +114,20 @@ class Todo extends Component{
         return(
             <div className="container">
                 <div className = "row">
-                    <div className = "col-md-3">
+                    <div className = "col-9">
                         <TodoList todoList = {this.state.todoList} onCompleted = {this.itemcompleted} onDeleted = {this.deleted} />
                     </div>
                 </div>
                 <form className = "row">
-                    <div className = "col-md-3">
-                        <input type="text" className="form-control" onChange = {this.handleChange} value={this.state.todoItem} />
+                    <div className = "col-9">
+                        <input type="text" className="form-control" onChange = {this.handleChange} value={this.state.todoItem} autoFocus/>
                     </div>
-                    <div className = "col-md-3">
+                    <div className = "col-3">
                         <button className = "btn btn-primary" onClick={this.addItem} disabled = {!this.state.todoItem}><span className="fa fa-pencil-square fa-lg"></span>{" Add #" + 
                     (this.state.todoList.length + 1)}</button>
                     </div>
                 </form>
+                
             </div>
         );
     }
